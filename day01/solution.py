@@ -7,15 +7,15 @@ STARTING_POSITION = 50
 DIAL_SIZE = 100
 
 
-def rotate_left(position, amount):
+def rotate_left(position: int, amount: int) -> int:
     return (position - amount) % DIAL_SIZE
 
 
-def rotate_right(position, amount):
+def rotate_right(position: int, amount: int) -> int:
     return (position + amount) % DIAL_SIZE
 
 
-def count_zero_crossings_left(position, amount):
+def count_zero_crossings_left(position: int, amount: int) -> int:
     if position == 0:
         return amount // DIAL_SIZE
     elif amount >= position:
@@ -24,11 +24,11 @@ def count_zero_crossings_left(position, amount):
         return 0
 
 
-def count_zero_crossings_right(position, amount):
+def count_zero_crossings_right(position: int, amount: int) -> int:
     return (position + amount) // DIAL_SIZE
 
 
-def part1(data):
+def part1(data: str) -> int:
     zero_count = 0
     position = STARTING_POSITION
 
@@ -44,11 +44,11 @@ def part1(data):
     return zero_count
 
 
-def part2(data):
+def part2(data: str) -> int:
     zero_count = 0
     position = STARTING_POSITION
 
-    for line in data.split("\n"):
+    for line in data.splitlines():
         (direction, amount) = parse_rotation(line)
 
         if direction == "L":
@@ -63,7 +63,7 @@ def part2(data):
     return zero_count
 
 
-def parse_rotation(line):
+def parse_rotation(line: str) -> (str, int):
     direction = line[0]
     amount = int(line[1:])
     return (direction, amount)

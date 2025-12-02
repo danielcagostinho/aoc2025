@@ -4,7 +4,6 @@ def read_input(filename: str = "input.txt") -> str:
 
 
 def parse_range(line: str) -> tuple[int, int]:
-    # Parse a range string like '11-22' into (lower, upper)
     range_part = line.split("-")
     lower = int(range_part[0])
     upper = int(range_part[1])
@@ -12,7 +11,6 @@ def parse_range(line: str) -> tuple[int, int]:
 
 
 def is_repeated_pattern(id: int) -> bool:
-    # Check if a number is made of a pattern repeated at least twice
     id_str = str(id)
     id_length = len(id_str)
 
@@ -29,7 +27,6 @@ def is_repeated_pattern(id: int) -> bool:
 
 
 def generate_part1_candidates(lower: int, upper: int) -> set[int]:
-    # Part 1: pattern is repeated exactly twice
     invalid_ids = set[int]()
     min_digits = len(str(lower))
     max_digits = len(str(upper))
@@ -51,7 +48,6 @@ def generate_part1_candidates(lower: int, upper: int) -> set[int]:
 
 
 def generate_part2_candidates(lower: int, upper: int) -> set[int]:
-    # Part 2: patterns repeated 2+ times
     invalid_ids = set[int]()
     min_digits = len(str(lower))
     max_digits = len(str(upper))
@@ -79,24 +75,20 @@ def generate_part2_candidates(lower: int, upper: int) -> set[int]:
 
 
 def part1_brute_force(data: str) -> int:
-    # Check every number in each range
     invalid_ids = []
     for line in data.split(","):
         (lower, upper) = parse_range(line)
         for i in range(lower, upper + 1):
             id_str = str(i)
             id_len = len(id_str)
-            # Only check even-length numbers
             if id_len % 2 == 1:
                 continue
-            # Check if first half equals second half
             if id_str[: id_len // 2] == id_str[id_len // 2 :]:
                 invalid_ids.append(i)
     return sum(invalid_ids)
 
 
 def part1_optimized(data: str) -> int:
-    # Generate only repeated pattern candidates
     all_invalid_ids = set[int]()
     for line in data.split(","):
         (lower, upper) = parse_range(line)
@@ -106,7 +98,6 @@ def part1_optimized(data: str) -> int:
 
 
 def part2_brute_force(data: str) -> int:
-    # Check every number in each range
     invalid_ids = []
     for line in data.split(","):
         (lower, upper) = parse_range(line)
@@ -117,7 +108,6 @@ def part2_brute_force(data: str) -> int:
 
 
 def part2_optimized(data: str) -> int:
-    # Generate only repeated pattern candidates
     all_invalid_ids = set[int]()
     for line in data.split(","):
         (lower, upper) = parse_range(line)

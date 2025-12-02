@@ -33,18 +33,5 @@ Each contributor's folder contains day directories (`day01/`, `day02/`, etc.) wi
 | 10  | ⬜     | ⬜      |
 | 11  | ⬜     | ⬜      |
 | 12  | ⬜     | ⬜      |
-| 13  | ⬜     | ⬜      |
-| 14  | ⬜     | ⬜      |
-| 15  | ⬜     | ⬜      |
-| 16  | ⬜     | ⬜      |
-| 17  | ⬜     | ⬜      |
-| 18  | ⬜     | ⬜      |
-| 19  | ⬜     | ⬜      |
-| 20  | ⬜     | ⬜      |
-| 21  | ⬜     | ⬜      |
-| 22  | ⬜     | ⬜      |
-| 23  | ⬜     | ⬜      |
-| 24  | ⬜     | ⬜      |
-| 25  | ⬜     | ⬜      |
 
 <!-- Use ✅ for completed days, ⬜ for incomplete -->

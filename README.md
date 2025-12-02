@@ -16,3 +16,35 @@ Each contributor's folder contains day directories (`day01/`, `day02/`, etc.) wi
 - `solution.py` - Solution code
 - `input.txt` - Puzzle input
 - `example.txt` - Example input from the problem description (optional)
+
+## Progress
+
+| Day | Daniel | Mbitzos |
+|-----|--------|---------|
+| 1   | ⬜     | ⬜      |
+| 2   | ⬜     | ⬜      |
+| 3   | ⬜     | ⬜      |
+| 4   | ⬜     | ⬜      |
+| 5   | ⬜     | ⬜      |
+| 6   | ⬜     | ⬜      |
+| 7   | ⬜     | ⬜      |
+| 8   | ⬜     | ⬜      |
+| 9   | ⬜     | ⬜      |
+| 10  | ⬜     | ⬜      |
+| 11  | ⬜     | ⬜      |
+| 12  | ⬜     | ⬜      |
+| 13  | ⬜     | ⬜      |
+| 14  | ⬜     | ⬜      |
+| 15  | ⬜     | ⬜      |
+| 16  | ⬜     | ⬜      |
+| 17  | ⬜     | ⬜      |
+| 18  | ⬜     | ⬜      |
+| 19  | ⬜     | ⬜      |
+| 20  | ⬜     | ⬜      |
+| 21  | ⬜     | ⬜      |
+| 22  | ⬜     | ⬜      |
+| 23  | ⬜     | ⬜      |
+| 24  | ⬜     | ⬜      |
+| 25  | ⬜     | ⬜      |
+
+<!-- Use ✅ for completed days, ⬜ for incomplete -->

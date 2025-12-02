@@ -21,7 +21,7 @@ Each contributor's folder contains day directories (`day01/`, `day02/`, etc.) wi
 
 | Day | Daniel | Mbitzos |
 |-----|--------|---------|
-| 1   | ⬜     | ⬜      |
+| 1   | ✅     | ⬜      |
 | 2   | ⬜     | ⬜      |
 | 3   | ⬜     | ⬜      |
 | 4   | ⬜     | ⬜      |

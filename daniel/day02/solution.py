@@ -13,13 +13,11 @@ def parse_range(line: str) -> tuple[int, int]:
 
 def is_repeated_pattern(id: int) -> bool:
     # Check if a number is made of a pattern repeated at least twice
-    # Time complexity: O(D * sqrt(D)) where D = number of digits
     id_str = str(id)
     id_length = len(id_str)
 
     # Try each possible pattern length (1 to half the total length)
     for pattern_length in range(1, id_length // 2 + 1):
-        # Pattern length must divide evenly into total length
         if id_length % pattern_length != 0:
             continue
         pattern = id_str[:pattern_length]
@@ -31,8 +29,7 @@ def is_repeated_pattern(id: int) -> bool:
 
 
 def generate_part1_candidates(lower: int, upper: int) -> set[int]:
-    # Part 1: patterns repeated exactly twice (even digit lengths only)
-    # Time complexity: O(D * C) where D=even digit lengths, C=candidates
+    # Part 1: pattern is repeated exactly twice
     invalid_ids = set[int]()
     min_digits = len(str(lower))
     max_digits = len(str(upper))
@@ -44,8 +41,8 @@ def generate_part1_candidates(lower: int, upper: int) -> set[int]:
 
         pattern_length = num_digits // 2
         for pattern in range(10 ** (pattern_length - 1), 10**pattern_length):
-            # prefix * (10^k + 1) creates pattern repeated twice
-            # e.g., 123 * (10^3 + 1) = 123 * 1001 = 123123
+            # pattern * (10^k + 1) creates pattern repeated twice
+            # For example 123 * (10^3 + 1) = 123 * 1001 = 123123
             candidate = pattern * (10**pattern_length + 1)
             if lower <= candidate <= upper:
                 invalid_ids.add(candidate)
@@ -55,7 +52,6 @@ def generate_part1_candidates(lower: int, upper: int) -> set[int]:
 
 def generate_part2_candidates(lower: int, upper: int) -> set[int]:
     # Part 2: patterns repeated 2+ times
-    # Time complexity: O(D * P * C) where D=digit lengths, P=pattern lengths, C=candidates
     invalid_ids = set[int]()
     min_digits = len(str(lower))
     max_digits = len(str(upper))
@@ -63,16 +59,16 @@ def generate_part2_candidates(lower: int, upper: int) -> set[int]:
     for num_digits in range(min_digits, max_digits + 1):
         # Try each pattern length that could repeat at least 2 times
         for pattern_length in range(1, num_digits // 2 + 1):
-            # Pattern length must divide evenly into total length
+            # Pattern length must be divisor of total_length
             if num_digits % pattern_length != 0:
                 continue
 
-            # Generate all possible prefixes of this length
-            for prefix in range(10 ** (pattern_length - 1), 10**pattern_length):
+            # Generate all possible patterns of pattern_length
+            for pattern in range(10 ** (pattern_length - 1), 10**pattern_length):
                 repetitions = num_digits // pattern_length
-                # For prefix "12" repeated 3 times: 12 * (10^4 + 10^2 + 10^0) = 121212
-                # For prefix "123" repeated 2 times: 123 * (10^3 + 10^0) = 123123
-                candidate = prefix * sum(
+                # For pattern "12" repeated 3 times: 12 * (10^4 + 10^2 + 10^0) = 121212
+                # For pattern "123" repeated 2 times: 123 * (10^3 + 10^0) = 123123
+                candidate = pattern * sum(
                     10 ** (pattern_length * i) for i in range(repetitions)
                 )
 
@@ -84,7 +80,6 @@ def generate_part2_candidates(lower: int, upper: int) -> set[int]:
 
 def part1_brute_force(data: str) -> int:
     # Check every number in each range
-    # Time complexity: O(N × R × D × sqrt(D))
     invalid_ids = []
     for line in data.split(","):
         (lower, upper) = parse_range(line)
@@ -102,7 +97,6 @@ def part1_brute_force(data: str) -> int:
 
 def part1_optimized(data: str) -> int:
     # Generate only repeated pattern candidates
-    # Time complexity: O(N × D × C) where N=ranges, D=even digit lengths, C=candidates
     all_invalid_ids = set[int]()
     for line in data.split(","):
         (lower, upper) = parse_range(line)
@@ -113,7 +107,6 @@ def part1_optimized(data: str) -> int:
 
 def part2_brute_force(data: str) -> int:
     # Check every number in each range
-    # Time complexity: O(N × R × D × sqrt(D))
     invalid_ids = []
     for line in data.split(","):
         (lower, upper) = parse_range(line)
@@ -125,7 +118,6 @@ def part2_brute_force(data: str) -> int:
 
 def part2_optimized(data: str) -> int:
     # Generate only repeated pattern candidates
-    # Time complexity: O(N × D × P × C) N=ranges, D=digit lengths, P=pattern lengths, C=candidates per pattern
     all_invalid_ids = set[int]()
     for line in data.split(","):
         (lower, upper) = parse_range(line)

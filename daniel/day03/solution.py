@@ -8,7 +8,6 @@ BATTERIES_TO_TURN_ON = 12
 
 def calculate_max_joltage_index(bank: str) -> int:
     largest_joltage_index = 0
-    print(f"parsing sub-bank: {bank}, length: {len(bank)}")
     for i in range(1, len(bank)):
         if int(bank[i]) > int(bank[largest_joltage_index]):
             largest_joltage_index = i
@@ -59,5 +58,5 @@ def part2(data):
 
 if __name__ == "__main__":
     data = read_input()
-    # print(f"Part 1: {part1(data)}")
+    print(f"Part 1: {part1(data)}")
     print(f"Part 2: {part2(data)}")

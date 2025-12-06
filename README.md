@@ -26,7 +26,7 @@ Each contributor's folder contains day directories (`day01/`, `day02/`, etc.) wi
 | 3   | ✅     | ⬜      |
 | 4   | ✅     | ⬜      |
 | 5   | ✅     | ⬜      |
-| 6   | ⬜     | ⬜      |
+| 6   | ✅     | ⬜      |
 | 7   | ⬜     | ⬜      |
 | 8   | ⬜     | ⬜      |
 | 9   | ⬜     | ⬜      |
